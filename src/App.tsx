@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import SortingVisualizer from './components/sortingVisualizer/SortingVisualizer';
 import { SortingArrayProvider } from './providers/SortingArrayProvider';
+import './App.css';
 
 function App() {
   return (

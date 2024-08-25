@@ -2,8 +2,6 @@ html {
     background-color: antiquewhite;
 }
 
-.array-container {}
-
 .array-box {
     display: flex;
     align-items: flex-end;
