@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Sorting Algorithm Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Sorting Algorithm Visualizer**! This project is a web-based application that provides visual demonstrations of various sorting algorithms. It is designed to help users understand how different sorting algorithms work through animated visualizations.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Visualization of 5 Sorting Algorithms**: The application includes visualizations for the following sorting algorithms:
+  - **Selection Sort**
+  - **Insertion Sort**
+  - **Merge Sort**
+  - **Quick Sort**
+  - **Bubble Sort**
+  
+- **Interactive User Interface**: Users can select any of the provided algorithms, adjust the speed of the visualization, and input custom arrays to see how the algorithms sort them in real-time.
 
-### `npm start`
+- **Customizable Parameters**: 
+  - Change the size of the array.
+  - Modify the speed of the sorting animation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Check out the live demo of the Sorting Algorithm Visualizer [here](https://edens-angel.github.io/sorting-visualizer/).
 
-### `npm test`
+## How It Works
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The visualizer is built using **React.js**. The core functionality involves generating an array of random numbers, which are then sorted using the selected algorithm. The process of sorting is animated step by step, providing a clear visualization of the algorithm's behavior.
 
-### `npm run build`
+### Algorithms Implemented
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Selection Sort**: Repeatedly selects the smallest (or largest) element from the unsorted portion and swaps it with the first unsorted element.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Insertion Sort**: Builds the final sorted array one element at a time by repeatedly picking the next element and inserting it into the correct position.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Merge Sort**: Divides the array into halves, sorts them, and then merges the sorted halves.
 
-### `npm run eject`
+4. **Quick Sort**: Picks a pivot element, partitions the array around the pivot, and recursively sorts the subarrays.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. **Bubble Sort**: Repeatedly swaps adjacent elements if they are in the wrong order.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Prerequisites
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run the project locally, you need to have the following installed:
 
-## Learn More
+- **Node.js** (v20 or higher)
+- **npm** (v10 or higher)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/edens-angel/sorting-visualizer.git
+   cd sorting-visualizer
