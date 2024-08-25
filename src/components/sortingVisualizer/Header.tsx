@@ -5,9 +5,13 @@ import { Slider } from 'rsuite'
 import { SortingArrayProviderContext } from '../../providers/SortingArrayProvider'
 
 interface ButtonHeaderProps {
-    generateArray: (...args: any[]) => void
+    generateArray: () => void
     sorts: SortObject[]
     areButtonsDisabled?: boolean
+}
+
+const invertSortSpeedSlider = (min: number, max: number, sliderValue: number) => {
+    return (min + max) - sliderValue
 }
 
 const Header: FC<ButtonHeaderProps> = ({ generateArray, sorts, areButtonsDisabled }) => {
@@ -21,16 +25,16 @@ const Header: FC<ButtonHeaderProps> = ({ generateArray, sorts, areButtonsDisable
             }}
         >
             <div className='flex justify-around items-center w-full h-full'>
-                <div className='w-56 flex items-center justify-around'>
+                <div className='flex items-center justify-around'>
                     <ArrayButton onClick={generateArray} text='Generate new Array' color='yellow' />
-                    <div>
+                    <div className='flex justify-center'>
                         <div>
                             <label>Amount of Items</label>
                             <Slider onChange={(e) => setAmountOfItems(e)} disabled={isSorting} defaultValue={50} step={5} min={30} max={250} style={{ width: 200 }} />
                         </div>
-                        <div>
+                        <div style={{ paddingLeft: 30 }}>
                             <label>Sorting Speed</label>
-                            <Slider onChange={(e) => setSortSpeed(e)} disabled={isSorting} defaultValue={100} min={20} step={10} max={500} style={{ width: 200 }} />
+                            <Slider onChange={(e) => setSortSpeed(invertSortSpeedSlider(20, 500, e))} disabled={isSorting} defaultValue={300} min={20} step={10} max={500} style={{ width: 200 }} />
                         </div>
                     </div>
                 </div>

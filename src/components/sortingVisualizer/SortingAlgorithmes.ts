@@ -20,7 +20,7 @@ const waitForDelay = async (delay: number) => {
     await new Promise(resolve => setTimeout(resolve, delay))
 }
 
-export const selectionSort = async (
+export const selectionSortAlgo = async (
     array: number[],
     setArrayState: Dispatch<SetStateAction<number[]>>,
     delay: number,
@@ -49,7 +49,7 @@ export const selectionSort = async (
     return array
 }
 
-export const bubbleSort = async (
+export const bubbleSortAlgo = async (
     array: number[],
     setArrayState: Dispatch<SetStateAction<number[]>>,
     delay: number,
@@ -75,7 +75,7 @@ export const bubbleSort = async (
     return array
 }
 
-export const mergeSort = async (
+export const mergeSortAlgo = async (
     array: number[],
     setArrayState: (array: number[]) => void,
     delay: number,
@@ -116,13 +116,13 @@ export const mergeSort = async (
     let arr1: number[] = array.slice(0, halfArray)
     let arr2: number[] = array.slice(halfArray)
 
-    arr1 = await mergeSort(arr1, setArrayState, delay, setHighlight)
-    arr2 = await mergeSort(arr2, setArrayState, delay, setHighlight)
+    arr1 = await mergeSortAlgo(arr1, setArrayState, delay, setHighlight)
+    arr2 = await mergeSortAlgo(arr2, setArrayState, delay, setHighlight)
 
     return merge(arr1, arr2, 0)
 }
 
-export const insertionSort = async (
+export const insertionSortAlgo = async (
     array: number[],
     setArrayState: Dispatch<SetStateAction<number[]>>,
     delay: number,
@@ -141,7 +141,7 @@ export const insertionSort = async (
     return array
 }
 
-export const quickSort = async (
+export const quickSortAlgo = async (
     array: number[],
     low: number,
     high: number,
@@ -170,8 +170,8 @@ export const quickSort = async (
     if (low < high) {
         const pivot = await partition(array, low, high);
 
-        quickSort(array, low, pivot - 1, setArrayState, delay, setHighlight);
-        quickSort(array, pivot + 1, high, setArrayState, delay, setHighlight);
+        quickSortAlgo(array, low, pivot - 1, setArrayState, delay, setHighlight);
+        quickSortAlgo(array, pivot + 1, high, setArrayState, delay, setHighlight);
     }
 
     setHighlight({ compared: null, swapped: null })

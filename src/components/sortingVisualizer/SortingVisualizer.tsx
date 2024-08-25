@@ -2,68 +2,24 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import Bar from './Bar'
 import Header from './Header'
 import { SortObject } from '../../interfaces/sortTypes'
-import { bubbleSort, insertionSort, mergeSort, quickSort, selectionSort } from './SortingAlgorithmes'
 import { SortingArrayProviderContext } from '../../providers/SortingArrayProvider'
+import { algoritmeProviderContext } from '../../providers/AlgoritmeProvider'
 import "./sortingVisualizer.css"
 
 const SortingVisualizer = () => {
-    const { array, setArray, isSorting, setIsSorting, amountOfItems, highlight, setHighlight, sortSpeed, resetArray } = useContext(SortingArrayProviderContext)
+    const { array, isSorting, amountOfItems, highlight, resetArray } = useContext(SortingArrayProviderContext)
+    const { selectionSort, bubbleSort, mergeSort, insertionSort, quickSort } = useContext(algoritmeProviderContext)
     const [boxWidth, setBoxWidth] = useState<number>(0);
     const arrayBoxRef = useRef<HTMLDivElement | null>(null)
-
     const barWidth = boxWidth ? boxWidth / amountOfItems - 2 : 0
 
-    const handleSelectionSort = async (array: number[]) => {
-        setIsSorting(true)
-        const arr = await selectionSort(array, setArray, sortSpeed, setHighlight)
-        setIsSorting(false)
-
-        return arr
-    }
-
-    const handleBubbleSort = async (array: number[]) => {
-        setIsSorting(true)
-        const arr = await bubbleSort(array, setArray, sortSpeed, setHighlight)
-        setIsSorting(false)
-
-        return arr
-    }
-
-    const handleMergeSort = async (array: number[]) => {
-        setIsSorting(true)
-        const arr = await mergeSort(array, setArray, sortSpeed, setHighlight)
-        setIsSorting(false)
-
-        setHighlight({ compared: null, swapped: null })
-        return arr
-    }
-
-    const handleQuickSort = async (array: number[]) => {
-        setIsSorting(true)
-        const arr = await quickSort(array, 0, array.length - 1, setArray, sortSpeed, setHighlight)
-        setIsSorting(false)
-
-        setHighlight({ compared: null, swapped: null })
-        return arr
-    }
-
-    const handleInsertionSort = async (array: number[]) => {
-        setIsSorting(true)
-        const arr = await insertionSort(array, setArray, sortSpeed, setHighlight)
-        setIsSorting(false)
-
-        setHighlight({ compared: null, swapped: null })
-        return arr
-    }
-
     const sorts: SortObject[] = [
-        { name: "Selection Sort", function: () => handleSelectionSort(array) },
-        { name: "Bubble Sort", function: () => handleBubbleSort(array) },
-        { name: "Merge Sort", function: () => handleMergeSort(array) },
-        { name: "Insertion Sort", function: () => handleInsertionSort(array) },
-        { name: "Quick Sort", function: () => handleQuickSort(array) },
+        { name: "Selection Sort", function: () => selectionSort(array) },
+        { name: "Bubble Sort", function: () => bubbleSort(array) },
+        { name: "Merge Sort", function: () => mergeSort(array) },
+        { name: "Insertion Sort", function: () => insertionSort(array) },
+        { name: "Quick Sort", function: () => quickSort(array) },
     ]
-
 
     useEffect(() => {
         if (arrayBoxRef.current) {
