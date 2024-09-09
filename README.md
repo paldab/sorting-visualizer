@@ -19,7 +19,7 @@ Welcome to the **Sorting Algorithm Visualizer**! This project is a web-based app
 
 ## Live Demo
 
-Check out the live demo of the Sorting Algorithm Visualizer [here](https://edens-angel.github.io/sorting-visualizer/).
+Check out the live demo of the Sorting Algorithm Visualizer [here](https://paldab.github.io/sorting-visualizer/).
 
 ## How It Works
 
